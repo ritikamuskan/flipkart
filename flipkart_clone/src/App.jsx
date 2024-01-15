@@ -1,35 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import Electronics from "./component/Electronics";
+import Fashion from "./component/Fashion";
+import Grocery from "./component/Grocery";
+import Mobiles from "./component/Mobiles";
+import Home from "./Home/Home";
+import Login from "./Home/Login";
+import Cart from "./Home/Cart";
+import SignUp from "./Home/SignUp";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginPage from "./Home/LoginPage";
+
+//import { useEffect } from "react";
+//import NavBar from "./navbar/NavBar";
+//import Header from "./navbar/Header";
+//import { auth } from "./Firebase";
+//import { useState } from "react";
+import SignPage from "./Home/SignPage";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  // const [userName, setuserName] = useState("");
+  // useEffect(() => {
+  //   auth.onAuthStateChanged((user) => {
+  //     if (user) {
+  //       setuserName(user.displayName);
+  //     } else {
+  //       setuserName("");
+  //     }
+  //   });
+  // });
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/Cart" element={<Cart />} />
+          <Route path="/Grocery" element={<Grocery />} />
+          <Route path="/Electronics" element={<Electronics />} />
+          <Route path="/Fashion" element={<Fashion />} />
+          <Route path="/Mobiles" element={<Mobiles />} />
+          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/LoginPage" element={<LoginPage />} />
+
+          <Route path="/SignPage" element={<SignPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
